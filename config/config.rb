@@ -1,6 +1,6 @@
-###### PIXELS deploy script config    ######
+###### Pixels deploy script config    ######
 ###### Lukas Jakob Hafner - @saftsaak ######
-###### 2016.12.01 – v1.3              ######
+###### 2018.09.06 – v1.4              ######
 
 # basic
 set :application, 'bedrock'
@@ -19,6 +19,7 @@ set :auto_update, false # project has been handed over to client
 set :plugins_to_sync, %W{#{fetch(:application)}} # separate by spaces
 set :muplugins_to_sync, %w{} # separate by spaces
 set :linked_files, %w{.env}
+set :yarn, true # Whether this project uses Yarn to build assets (otherwise uses npm).
 
 # structure
 set :uploads_path, "web/app/uploads"
