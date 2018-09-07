@@ -1,6 +1,6 @@
-###### PIXELS deploy script           ######
+###### Pixels deploy script           ######
 ###### Lukas Jakob Hafner - @saftsaak ######
-###### 2016.12.01 – v1.3              ######
+###### 2018.09.06 – v1.4              ######
 
 require_relative 'config.rb'
 
@@ -222,8 +222,15 @@ namespace :build_assets do
               execute :hacher, "get -k bower_modules_theme_#{fetch(:application)} -f bower.json"
             end
           end
-          execute :npm, 'install'
-          execute :npm, 'run build:production'
+          if fetch(:yarn)
+            puts "Using Yarn to build assets"
+            execute :yarn
+            execute :yarn, 'build:production'
+          else
+            puts "Using npm to build assets"
+            execute :npm, 'install'
+            execute :npm, 'run build:production'
+          end
           # Cache dependencies with Hacher
           if test "which hacher > /dev/null 2>&1"
             execute :hacher, "set -k node_modules_theme_#{fetch(:application)} -f package.json ./node_modules"
@@ -250,7 +257,13 @@ namespace :build_assets do
       within "#{fetch(:local_theme_path)}" do
         if test "[ -f #{fetch(:local_theme_path)}/package.json ]"
           puts "Re-creating the local assets"
-          execute :npm, "run build"
+          if fetch(:yarn)
+            puts "Using Yarn to build assets"
+            execute :yarn, 'build'
+          else
+            puts "Using npm to build assets"
+            execute :npm, 'run build'
+          end
         end
       end
     end
