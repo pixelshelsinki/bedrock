@@ -47,6 +47,7 @@
     "wpackagist-plugin/autodescription": "~3.0.5",
     "wpackagist-plugin/autoptimize": "~2.3.2",
     "wpackagist-plugin/cookie-notice": "~1.2.41",
+    "wpackagist-plugin/classic-editor": ">=0.5",
     "wpackagist-plugin/clean-image-filenames": "~1.2.1",
     "wpackagist-plugin/google-analytics-dashboard-for-wp": "~5.3",
     "wpackagist-plugin/google-sitemap-generator": "~4.0",
