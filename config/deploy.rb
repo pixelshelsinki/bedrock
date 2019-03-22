@@ -200,8 +200,7 @@ namespace :wp_palvelu do
       within release_path do
         execute "wp-purge-cache", raise_on_non_zero_exit: false
         execute "wp-restart-nginx", raise_on_non_zero_exit: false
-        execute "wp-restart-php5-fpm", raise_on_non_zero_exit: false
-        execute "wp-restart-php7-fpm", raise_on_non_zero_exit: false
+        execute "wp-restart-php", raise_on_non_zero_exit: false
       end
     end
   end
