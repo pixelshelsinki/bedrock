@@ -88,3 +88,13 @@ if (!defined('ABSPATH')) {
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
   $_SERVER['HTTPS'] = 'on';
 }
+
+/**
+ * Google API Key
+ */
+define('GOOGLE_API_KEY', env('GOOGLE_API_KEY') ?: '');
+
+/**
+ * Kill Polylang Cookie (negatively affects caching on Seravo)
+ */
+define('PLL_COOKIE', false);
